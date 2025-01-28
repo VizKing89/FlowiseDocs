@@ -1,11 +1,7 @@
-FROM node:18-alpine
+FROM ghcr.io/flowiseai/flowise:latest
 
 WORKDIR /app
-
-COPY docs/package.json docs/package-lock.json /app/
-RUN npm install
-
-COPY docs/. /app/
-RUN npm run build
+ENV FLOWISE_USERNAME=admin
+ENV FLOWISE_PASSWORD=admin123
 
 CMD ["npm", "start"]
